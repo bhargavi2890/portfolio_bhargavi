@@ -7,6 +7,54 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Temporary inline styles for alerts - add to your main CSS later */
+        .alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+        .alert.success {
+            background: #4CAF50;
+        }
+        .alert.error {
+            background: #F44336;
+        }
+        .alert.fade-out {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        .alert-icon {
+            font-weight: bold;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .spinner {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: currentColor;
+            animation: spin 0.8s linear infinite;
+            margin-right: 0.5em;
+            vertical-align: middle;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -41,7 +89,7 @@
                 </div>
             </div>
             <div class="hero-image animate__animated animate__fadeInRight">
-                <img src="images/hey.png" 
+                <img src="images/hi.png" 
                   alt="My Bitmoji"
                   width="400"  
                   height="400"
@@ -297,8 +345,8 @@
             </div>
         </div>
     </section>
-<!-- Coding Profiles Section -->
-<!-- Coding Profiles Section -->
+
+    <!-- Coding Profiles Section -->
     <section id="coding-profiles" class="coding-profiles">
         <div class="container">
             <h2 class="section-title animate__animated animate__fadeIn">Coding Profiles</h2>
@@ -341,6 +389,7 @@
             </div>
         </div>
     </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -350,21 +399,21 @@
                     <h3>Contact Information</h3>
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>
-                        <div>
+                        <div class="info-item-content">
                             <h4>Email</h4>
                             <span>bhargavibudhana23@gmail.com</span>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
-                        <div>
+                        <div class="info-item-content">
                             <h4>Phone</h4>
                             <span>+91 89320 30447</span>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <div>
+                        <div class="info-item-content">
                             <h4>Location</h4>
                             <span>India, Andhra Pradesh</span>
                         </div>
@@ -376,21 +425,38 @@
                         <a href="https://www.instagram.com/bhargavi_252/" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <!-- Change your form to this -->
-                <form id="contactForm" name="contact" method="POST" netlify>
+                
+                <!-- Corrected Form with ID and proper structure -->
+                <form id="contactForm" 
+                      name="contact" 
+                      method="POST" 
+                      data-netlify="true" 
+                      netlify-honeypot="bot-field"
+                      class="animate__animated animate__fadeInRight">
+                  
+                    <!-- Honeypot Field -->
+                    <div class="hidden">
+                        <label>Don't fill this out: <input name="bot-field"></label>
+                    </div>
+                    
+                    <!-- Form Fields -->
                     <div class="form-group">
-                       <input type="text" name="name" id="name" placeholder="Your Name" required>
+                        <input type="text" name="name" id="name" placeholder=" " required>
+                        <label for="name">Your Name</label>
                     </div>
                     <div class="form-group">
-                      <input type="email" name="email" id="email" placeholder="Your Email" required>
+                        <input type="email" name="email" id="email" placeholder=" " required>
+                        <label for="email">Your Email</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="subject" id="subject" placeholder="Subject">
+                        <input type="text" name="subject" id="subject" placeholder=" ">
+                        <label for="subject">Subject</label>
                     </div>
                     <div class="form-group">
-                       <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <textarea name="message" id="message" placeholder=" " required></textarea>
+                        <label for="message">Your Message</label>
                     </div>
-                   <button type="submit" class="btn">Send Message</button>
+                    <button type="submit" class="btn">Send Message</button>
                 </form>
             </div>
         </div>
