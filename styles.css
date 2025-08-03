@@ -731,7 +731,7 @@ img {
 }
 .timeline-date {
     position: absolute;
-    width: 140px;
+    width: 150px;
     background-color: var(--soft-green);
     color: var(--near-black);
     text-align: center;
