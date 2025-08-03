@@ -1,1 +1,1 @@
-images foe my portfolio site
+images for my portfolio site
